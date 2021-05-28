@@ -1,0 +1,13 @@
+<button >Load Base Dict</button>
+<button (click) = "addWord()">Add word to DB</button>
+
+
+<div *ngIf = "words">
+    
+    <table>
+        <tr *ngFor="let word of words" class="first-td">
+            <td>{{word.key }}</td>
+            <td>{{word.translate}}</td>
+        </tr>
+    </table>
+</div>
