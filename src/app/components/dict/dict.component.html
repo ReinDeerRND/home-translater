@@ -1,13 +1,18 @@
-<button >Load Base Dict</button>
-<button (click) = "addWord()">Add word to DB</button>
-
-
-<div *ngIf = "words">
+<div class="search-container">
+    <mat-form-field appearance="standard" [formGroup]="searchForm">
+        <mat-label>Поиск слова</mat-label>
+        <input matInput formControlName="search">
+    </mat-form-field>
+    <div class="header-buttons">
+        <button mat-raised-button>Закачать базовый словарь</button>
+        <button mat-raised-button (click)="addWord()">Добавить слово</button>
+        <button mat-raised-button >Сохранить в файл</button>
+        <button mat-raised-button >Сохранить в базу данных</button>
+    </div>
     
-    <table>
-        <tr *ngFor="let word of words" class="first-td">
-            <td>{{word.key }}</td>
-            <td>{{word.translate}}</td>
-        </tr>
-    </table>
+</div>
+<div *ngIf="words" class="dict-container">
+    <mat-card *ngFor="let word of words">
+        <b>{{word.key }}</b> | {{word.translate}}
+    </mat-card>
 </div>

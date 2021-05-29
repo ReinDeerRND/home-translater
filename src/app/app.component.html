@@ -1,27 +1,33 @@
 <mat-card>
   <div class="header1">СамСебеПереводчик</div>
 
-  <mat-tab-group animationDuration="0ms" >
+  <mat-tab-group animationDuration="0ms">
     <mat-tab>
       <ng-template mat-tab-label>
         <mat-icon class="tab-icon">storage</mat-icon>
         Статьи
       </ng-template>
-      <app-texts></app-texts>
+      <ng-template matTabContent>
+        <app-texts></app-texts>
+      </ng-template>
     </mat-tab>
     <mat-tab>
       <ng-template mat-tab-label>
         <mat-icon class="tab-icon">download</mat-icon>
         Загрузка текста
       </ng-template>
-      <app-load></app-load>
+      <ng-template matTabContent>
+        <app-load></app-load>
+      </ng-template>
     </mat-tab>
     <mat-tab label="Dictionary">
       <ng-template mat-tab-label>
         <mat-icon class="tab-icon">translate</mat-icon>
         Словарь
       </ng-template>
-      <app-dict></app-dict>
+      <ng-template matTabContent>
+        <app-dict></app-dict>
+      </ng-template>
     </mat-tab>
   </mat-tab-group>
 </mat-card>

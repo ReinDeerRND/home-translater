@@ -1,6 +1,32 @@
-table{
-    border: none;
+.dict-container{
+    width:100%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
-.first-td{
-    width: 15vw;
+mat-card{
+    width: 22%;
+    margin: 5px 6px;
+
+}
+.search-container{
+    width: 100%;
+    display: flex;
+    justify-content: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+mat-form-field{
+width: 40%;
+margin-left: 5px;
+}
+.header-buttons{
+    margin-right: 5px;
+}
+button{
+    margin-right: 5px;
 }
