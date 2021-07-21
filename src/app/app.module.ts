@@ -20,6 +20,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DbService } from './services/db.service';
 import { NewWordsComponent } from './components/new-words/new-words.component';
 import { CommonModule } from '@angular/common';
+import { SearchWordPipe } from './search-word.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CommonModule } from '@angular/common';
     TextsComponent,
     LoadComponent,
     DictComponent,
-    NewWordsComponent
+    NewWordsComponent,
+    SearchWordPipe
   ],
   imports: [
     BrowserModule,

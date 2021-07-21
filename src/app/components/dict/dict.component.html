@@ -6,13 +6,18 @@
     <div class="header-buttons">
         <button mat-raised-button>Закачать базовый словарь</button>
         <button mat-raised-button (click)="addWord()">Добавить слово</button>
-        <button mat-raised-button >Сохранить в файл</button>
-        <button mat-raised-button >Сохранить в базу данных</button>
+        <button mat-raised-button>Сохранить в файл</button>
+        <button mat-raised-button>Сохранить в базу данных</button>
     </div>
-    
+
 </div>
 <div *ngIf="words" class="dict-container">
-    <mat-card *ngFor="let word of words">
+    <mat-card *ngFor="let word of words | searchWord: searchForm.value.search">
         <b>{{word.key }}</b> | {{word.translate}}
+        <div class="float-buttons">
+           <mat-icon matTooltip="Редактировать перевод" matTooltipPosition="above">edit</mat-icon>
+        <mat-icon matTooltip="Удалить слово" matTooltipPosition="above">remove_circle_outline</mat-icon>  
+        </div>
+       
     </mat-card>
 </div>

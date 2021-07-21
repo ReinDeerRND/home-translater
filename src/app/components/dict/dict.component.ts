@@ -14,7 +14,7 @@ export class DictComponent implements OnInit {
   searchForm: FormGroup;
   
   constructor(private service: LoadDictService) { 
-    this.words = this.service.getSessionDictionary();
+    this.words = this.service.getSessionDictionary().sort((a:IWord, b:IWord)=>a.key > b.key? 1: -1 );
     this.searchForm = new FormGroup({
       search: new FormControl(),
     })

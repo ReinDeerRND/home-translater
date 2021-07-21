@@ -1,5 +1,5 @@
-.dict-container{
-    width:100%;
+.dict-container {
+    width: 100%;
     margin: 10px auto;
     display: flex;
     justify-content: row;
@@ -7,12 +7,11 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
-mat-card{
+mat-card {
     width: 22%;
     margin: 5px 6px;
-
 }
-.search-container{
+.search-container {
     width: 100%;
     display: flex;
     justify-content: row;
@@ -20,13 +19,34 @@ mat-card{
     justify-content: space-between;
     align-items: center;
 }
-mat-form-field{
-width: 40%;
-margin-left: 5px;
+mat-form-field {
+    position: relative;
+    width: 40%;
+    margin-left: 5px;
 }
-.header-buttons{
+.header-buttons {
     margin-right: 5px;
 }
-button{
+button {
     margin-right: 5px;
+}
+.float-buttons {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    display: none;
+    mat-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        margin-right: 6px;
+        cursor: pointer;
+    }
+}
+mat-card:hover{
+    background-color: aliceblue;
+   .float-buttons{
+       display: block;
+   }
+    
 }
