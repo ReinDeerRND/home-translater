@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
-import { Observable } from 'rxjs';
 import { BaseDictionary } from '../data/base-dict';
 import { IWord } from '../model/model';
 
