@@ -1,0 +1,16 @@
+
+<div mat-dialog-content>
+  <div class="modal-header">Добавление слова</div>
+  <mat-form-field appearance="outline">
+    <mat-label>Английский вариант</mat-label>
+    <input matInput [(ngModel)]="data.key">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Русский перевод</mat-label>
+    <input matInput [(ngModel)]="data.translate">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Отмена</button>
+  <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Добавить</button>
+</div>

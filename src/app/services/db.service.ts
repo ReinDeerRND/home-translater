@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
-import { BaseDictionary } from '../data/base-dict';
+import { DBDictionary } from '../data/base-dict';
 import { IWord } from '../model/model';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class DbService implements InMemoryDbService {
   constructor() { }
   
   createDb() {
-    const dict: IWord[] = BaseDictionary;
+    const dict: IWord[] = DBDictionary;
     return {dict};
   }
 }

@@ -79,3 +79,5 @@ export const BaseDictionary = [
 ]
 
 export const SessionDictionary: IWord[] = [];
+
+export const DBDictionary: IWord[] = [];

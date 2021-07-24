@@ -1,0 +1,16 @@
+.modal-header{
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #888888;
+}
+mat-form-field{
+    margin-right: 10px;
+    &:first-child{
+        width: 210px;
+    }
+    &:last-child{
+        width: 330px;
+    }
+}

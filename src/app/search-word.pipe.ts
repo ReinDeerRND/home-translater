@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { IWord } from './model/model';
 
 @Pipe({
-  name: 'searchWord'
+  name: 'searchWord',
+  pure: false
 })
 export class SearchWordPipe implements PipeTransform {
 
@@ -13,7 +14,6 @@ export class SearchWordPipe implements PipeTransform {
     } else {
       return value;
     }
-    
   }
 
 }

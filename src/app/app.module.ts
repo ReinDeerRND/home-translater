@@ -12,15 +12,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { TextsComponent } from './components/texts/texts.component';
 import { LoadComponent } from './components/load/load.component';
 import { DictComponent } from './components/dict/dict.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DbService } from './services/db.service';
-import { NewWordsComponent } from './components/new-words/new-words.component';
 import { CommonModule } from '@angular/common';
 import { SearchWordPipe } from './search-word.pipe';
+import { ModalNewWordComponent } from './components/modal-new-word/modal-new-word.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,8 @@ import { SearchWordPipe } from './search-word.pipe';
     TextsComponent,
     LoadComponent,
     DictComponent,
-    NewWordsComponent,
-    SearchWordPipe
+    SearchWordPipe,
+    ModalNewWordComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,9 @@ import { SearchWordPipe } from './search-word.pipe';
     MatInputModule,
     MatExpansionModule,
     MatTooltipModule,
+    MatDialogModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(DbService)
   ],
