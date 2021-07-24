@@ -21,8 +21,12 @@ export class LoadDictService {
     });
   }
 
+  isWordExist(key: string): boolean{
+   return _.find(SessionDictionary, { key: key })? true: false;
+  }
+  
   addWordToDictionary(word: IWord) {
-    if (!_.find(SessionDictionary, { key: word.key })) { 
+    if (!this.isWordExist(word.key)) { 
       SessionDictionary.push(word); 
       this.changeDictionary.next();
     }

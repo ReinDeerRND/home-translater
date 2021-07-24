@@ -1,4 +1,3 @@
-import { I18nContext } from '@angular/compiler/src/render3/view/i18n/context';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import * as _ from 'lodash';
@@ -43,8 +42,14 @@ export class LoadComponent implements OnInit {
 
   translateText(text: string | undefined) {
     if (text) {
-      this.wordsArray = _.uniq(_.words(text.toLowerCase()));
+      this.wordsArray = [];
+      let preloadWords = _.uniq(_.words(text.toLowerCase()));
+      preloadWords.forEach((word: string )=>{
+        if (!this.loadDictService.isWordExist(word))
+         this.wordsArray?.push(word);
+      })
     }
+
     this.wordsArray?.forEach(() => {
       this.newWordsArray.push(this.fb.group({
         translate: []
@@ -55,7 +60,7 @@ export class LoadComponent implements OnInit {
   saveToDictionary() {
     let keyWords = this.wordsArray?.map(word => _.zipObject(['key'], [word]));
     const translateWords = this.newWordsForm.value['newWordsArray'];
-    let objectForDictionary = _.merge(keyWords, translateWords);
+    let objectForDictionary = _.merge(keyWords, translateWords).filter((item:IWord)=> item.translate);
     this.loadDictService.addWordsToDictionary(objectForDictionary);
     this.newWordsArray = new FormArray([]);
     this.wordsArray = [];
