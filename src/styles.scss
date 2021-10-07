@@ -8,12 +8,76 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
+$my-primary: (
+    50: #DFF6FD,
+    100: #DFF6FD,
+    200: #DFF6FD,
+    300: #DFF6FD,
+    400: #DFF6FD,
+    500: #DFF6FD,
+    600: #DFF6FD,
+    700: #DFF6FD,
+    800: #DFF6FD,
+    900: #DFF6FD,
+    A100: #DFF6FD,
+    A200: #DFF6FD,
+    A400: #DFF6FD,
+    A700: #DFF6FD,
+    contrast: (
+    50: #005C9E,
+    100: #005C9E,
+    200: #005C9E,
+    300: #005C9E,
+    400: #005C9E,
+    500: #005C9E,
+    600: #005C9E,
+    700: #005C9E,
+    800: #005C9E,
+    900: #005C9E,
+    A100: #005C9E,
+    A200: #005C9E,
+    A400: #005C9E,
+    A700: #005C9E,
+  )
+);
+$my-accent: (
+  50: #005C9E,
+  100: #005C9E,
+  200: #005C9E,
+  300: #005C9E,
+  400: #005C9E,
+  500: #005C9E,
+  600: #005C9E,
+  700: #005C9E,
+  800: #005C9E,
+  900: #005C9E,
+  A100: #005C9E,
+  A200: #005C9E,
+  A400: #005C9E,
+  A700: #005C9E,
+    contrast: (
+      50: #DFF6FD,
+      100: #DFF6FD,
+      200: #DFF6FD,
+      300: #DFF6FD,
+      400: #DFF6FD,
+      500: #DFF6FD,
+      600: #DFF6FD,
+      700: #DFF6FD,
+      800: #DFF6FD,
+      900: #DFF6FD,
+      A100: #DFF6FD,
+      A200: #DFF6FD,
+      A400: #DFF6FD,
+      A700: #DFF6FD,
+  )
+);
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$inlang-primary: mat-palette($mat-indigo);
-$inlang-accent: mat-palette($mat-pink, A200, A100, A400);
+$inlang-primary: mat-palette($my-primary);
+$inlang-accent: mat-palette($my-accent);
 
 // The warn palette is optional (defaults to red).
 $inlang-warn: mat-palette($mat-red);
@@ -39,8 +103,10 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .header1{
   font-size: 20px;
+  color: #005C9E;
 }
 .header2{
+  color: #005C9E;
   font-size: 16px;
   margin: 20px 0 10px;
 }

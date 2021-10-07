@@ -32,6 +32,18 @@ export class LoadDictService {
     }
   }
 
+  getWord(key: string): IWord | null{
+    let word = _.find(SessionDictionary, { key: key })
+    return word? word : null;
+  }
+
+  editWordInDictionary(word: IWord){
+    SessionDictionary.forEach((item:IWord)=>{
+      if(item.key === word.key) item.translate = word.translate;
+    })    
+    this.changeDictionary.next();
+  }
+
   addWordsToDictionary(array: IWord[]) {
     if (array && array.length > 0) {
       array.forEach(item => {

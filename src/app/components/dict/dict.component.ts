@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { IWord } from 'src/app/model/model';
 import { LoadDictService } from 'src/app/services/load-dict.service';
+import { ModalEditWordComponent } from '../modal-edit-word/modal-edit-word.component';
 import { ModalNewWordComponent } from '../modal-new-word/modal-new-word.component';
 
 @Component({
@@ -42,6 +43,19 @@ export class DictComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
          this.service.addWordToDictionary(result);
+      } 
+    });
+  }
+
+  editWord(word:IWord){
+    const dialogRef = this.dialog.open(ModalEditWordComponent, {
+      width: '600px',
+      data: word,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+         this.service.editWordInDictionary(result);
       } 
     });
   }

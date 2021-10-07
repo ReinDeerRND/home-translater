@@ -1,7 +1,7 @@
 <div class="header2"> Загруженные статьи</div>
-<mat-icon (click)="expand()" class="view-icon" matTooltip="Развернуть все статьи"
+<mat-icon color="accent" (click)="expand()" class="view-icon" matTooltip="Развернуть все статьи"
 matTooltipPosition="above">expand_more</mat-icon>
-<mat-icon (click)="collapse()" class="view-icon" matTooltip="Свернуть все статьи"
+<mat-icon color="accent" (click)="collapse()" class="view-icon" matTooltip="Свернуть все статьи"
 matTooltipPosition="above">expand_less</mat-icon>
 <mat-accordion *ngFor="let item of texts; let i=index" [multi]="true">
     <mat-expansion-panel (opened)="panelOpenState[i] = true" (closed)="panelOpenState[i] = false">

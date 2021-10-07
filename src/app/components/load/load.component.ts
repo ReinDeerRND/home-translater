@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import * as _ from 'lodash';
 import { IText, IWord } from 'src/app/model/model';
 import { LoadDictService } from 'src/app/services/load-dict.service';
@@ -15,9 +16,10 @@ export class LoadComponent implements OnInit {
   newWordsForm: FormGroup;
   newWordsArray: FormArray = new FormArray([]);
   newText?: IText;
+  markedText?: any[] = [];
   wordsArray: string[] | null = null;
 
-  constructor(private fb: FormBuilder, private loadDictService: LoadDictService) {
+  constructor(private fb: FormBuilder, private loadDictService: LoadDictService, private snackBar: MatSnackBar) {
     this.loadForm = new FormGroup({
       textTitle: new FormControl(null, [Validators.required]),
       textContent: new FormControl(null, [Validators.required])
@@ -37,17 +39,18 @@ export class LoadComponent implements OnInit {
       this.translateText(this.newText?.textContent);
     }
     this.loadForm.reset();
-   
   }
 
   translateText(text: string | undefined) {
     if (text) {
+      this.getMarkedText(text);
       this.wordsArray = [];
       let preloadWords = _.uniq(_.words(text.toLowerCase()));
-      preloadWords.forEach((word: string )=>{
-        if (!this.loadDictService.isWordExist(word))
-         this.wordsArray?.push(word);
-      })
+      preloadWords.forEach((word: string) => {
+        if (!this.loadDictService.isWordExist(word)) {
+          this.wordsArray?.push(word);
+        }
+      });
     }
 
     this.wordsArray?.forEach(() => {
@@ -57,12 +60,36 @@ export class LoadComponent implements OnInit {
     })
   }
 
+  getMarkedText(text: string){
+    let textArray  = text.split(' ');    
+    textArray.forEach(word=>{
+      let foundWord: IWord | null = this.loadDictService.getWord(word.toLowerCase());
+      if (foundWord) {
+        this.markedText?.push({
+          word: word,
+          tooltip: foundWord.translate
+        });
+      } else{
+        this.markedText?.push({
+          word: word,
+          tooltip: null
+        });
+      }
+    });
+    console.log(this.markedText);
+    
+  }
+  
+
   saveToDictionary() {
     let keyWords = this.wordsArray?.map(word => _.zipObject(['key'], [word]));
     const translateWords = this.newWordsForm.value['newWordsArray'];
-    let objectForDictionary = _.merge(keyWords, translateWords).filter((item:IWord)=> item.translate);
+    let objectForDictionary = _.merge(keyWords, translateWords).filter((item: IWord) => item.translate);
     this.loadDictService.addWordsToDictionary(objectForDictionary);
     this.newWordsArray = new FormArray([]);
     this.wordsArray = [];
+    this.newText = undefined;
+    this.markedText = [];
+    this.snackBar.open("Слова сохранены в словарь", "Закрыть", { duration: 2000 });
   }
 }

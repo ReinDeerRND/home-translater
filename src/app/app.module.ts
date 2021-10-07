@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { TextsComponent } from './components/texts/texts.component';
@@ -23,6 +24,9 @@ import { DbService } from './services/db.service';
 import { CommonModule } from '@angular/common';
 import { SearchWordPipe } from './search-word.pipe';
 import { ModalNewWordComponent } from './components/modal-new-word/modal-new-word.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ModalEditWordComponent } from './components/modal-edit-word/modal-edit-word.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import { ModalNewWordComponent } from './components/modal-new-word/modal-new-wor
     LoadComponent,
     DictComponent,
     SearchWordPipe,
-    ModalNewWordComponent
+    ModalNewWordComponent,
+    ModalEditWordComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,8 @@ import { ModalNewWordComponent } from './components/modal-new-word/modal-new-wor
     MatExpansionModule,
     MatTooltipModule,
     MatDialogModule,
+    MatToolbarModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,

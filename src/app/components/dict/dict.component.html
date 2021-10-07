@@ -4,10 +4,10 @@
         <input matInput formControlName="search">
     </mat-form-field>
     <div class="header-buttons">
-        <button mat-raised-button (click)="loadBaseDictionary()">Закачать базовый словарь</button>
-        <button mat-raised-button (click)="addWord()">Добавить слово</button>
-        <button mat-raised-button>Сохранить в файл</button>
-        <button mat-raised-button>Сохранить в базу данных</button>
+        <button mat-raised-button color="primary" (click)="loadBaseDictionary()">Закачать базовый словарь</button>
+        <button mat-raised-button color="primary" (click)="addWord()">Добавить слово</button>
+        <button mat-raised-button color="primary">Сохранить в файл</button>
+        <button mat-raised-button color="primary">Сохранить в базу данных</button>
     </div>
 
 </div>
@@ -15,7 +15,7 @@
     <mat-card *ngFor="let word of words | searchWord: searchForm.value.search">
         <b>{{word.key }}</b> | {{word.translate}}
         <div class="float-buttons">
-           <mat-icon matTooltip="Редактировать перевод" matTooltipPosition="above">edit</mat-icon>
+           <mat-icon matTooltip="Редактировать перевод" matTooltipPosition="above" (click)="editWord(word)">edit</mat-icon>
         <mat-icon matTooltip="Удалить слово" matTooltipPosition="above">remove_circle_outline</mat-icon>  
         </div>
        
