@@ -19,6 +19,13 @@ mat-card {
     justify-content: space-between;
     align-items: center;
 }
+.amount-box {
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 5px;
+    color: #005c9e;
+    font-style: italic;
+}
 mat-form-field {
     position: relative;
     width: 40%;
@@ -29,6 +36,7 @@ mat-form-field {
 }
 button {
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 .float-buttons {
     position: absolute;
@@ -43,10 +51,35 @@ button {
         cursor: pointer;
     }
 }
-mat-card:hover{
+mat-card:hover {
     background-color: aliceblue;
-   .float-buttons{
-       display: block;
-   }
-    
+    .float-buttons {
+        display: block;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .search-container {
+        mat-form-field {
+            width: 100%;
+        }
+        .header-buttons {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .amount-box {
+            margin-top: 10px;
+        }
+    }
+}
+@media screen and (max-width: 426px) {
+    .dict-container .mat-card {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 376px) {
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
 }

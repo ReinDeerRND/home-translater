@@ -32,6 +32,11 @@ export class LoadDictService {
     }
   }
 
+  deleteWordFromDictionary(key: string){
+    let index  = _.findIndex(SessionDictionary, { key: key });
+    SessionDictionary.splice(index, 1);
+  }
+
   getWord(key: string): IWord | null{
     let word = _.find(SessionDictionary, { key: key })
     return word? word : null;
@@ -53,7 +58,7 @@ export class LoadDictService {
   }
 
   getSessionDictionary() {
-    return SessionDictionary;
+    return SessionDictionary.sort((a: IWord, b: IWord) => a.key > b.key ? 1 : -1);
   }
 
   saveSessionDictionaryToDB() {
@@ -69,9 +74,11 @@ export class LoadDictService {
   loadTexts() {
     return BaseTexts;
   }
+
   addText(text: IText) {
     BaseTexts.unshift(text);
   }
+
   loadBaseDictionary() {
     BaseDictionary.forEach((word: IWord) => {
       if (!_.find(SessionDictionary, { key: word.key })) { 

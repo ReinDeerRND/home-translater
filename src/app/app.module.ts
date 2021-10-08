@@ -26,6 +26,7 @@ import { SearchWordPipe } from './search-word.pipe';
 import { ModalNewWordComponent } from './components/modal-new-word/modal-new-word.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ModalEditWordComponent } from './components/modal-edit-word/modal-edit-word.component';
+import { ModalInfoComponent } from './components/modal-info/modal-info.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ModalEditWordComponent } from './components/modal-edit-word/modal-edit-
     DictComponent,
     SearchWordPipe,
     ModalNewWordComponent,
-    ModalEditWordComponent
+    ModalEditWordComponent,
+    ModalInfoComponent
   ],
   imports: [
     BrowserModule,

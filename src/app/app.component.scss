@@ -7,14 +7,33 @@ mat-card {
         }
     }
 }
+img.header-logo{
+    height: 20px;
+    width: auto;
+    margin-right: 10px;
+}
 .example-spacer {
     flex: 1 1 auto;
 }
 .description {
-    color: #005c9e;
-    text-align: center;
-    margin: 5px auto;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+   width: 100%;
     font-weight: 450;
+    span{
+        margin: 10px 5px;
+    }
+    span:first-child{
+        color: #7d0ebd;
+    }
+    span:nth-child(2){
+        color: #0f7fcf;
+    }
+    span:last-child{
+        color: rgb(3, 207, 207);
+    }
 }
 .center-icon {
     width: 100%;

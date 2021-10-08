@@ -1,14 +1,15 @@
 <div class="search-container">
-    <mat-form-field appearance="standard" [formGroup]="searchForm">
+    <mat-form-field appearance="standard" [formGroup]="searchForm" color="accent">
         <mat-label>Поиск слова</mat-label>
         <input matInput formControlName="search">
     </mat-form-field>
     <div class="header-buttons">
         <button mat-raised-button color="primary" (click)="loadBaseDictionary()">Закачать базовый словарь</button>
         <button mat-raised-button color="primary" (click)="addWord()">Добавить слово</button>
-        <button mat-raised-button color="primary">Сохранить в файл</button>
-        <button mat-raised-button color="primary">Сохранить в базу данных</button>
+        <button mat-raised-button color="primary" (click)="saveDictToFile()">Сохранить в файл</button>
+        <button mat-raised-button color="primary" (click)="saveDictToDB()">Сохранить в базу данных</button>
     </div>
+    <p class="amount-box">Всего слов: {{dictLen}}</p>
 
 </div>
 <div *ngIf="words" class="dict-container">
@@ -16,7 +17,7 @@
         <b>{{word.key }}</b> | {{word.translate}}
         <div class="float-buttons">
            <mat-icon matTooltip="Редактировать перевод" matTooltipPosition="above" (click)="editWord(word)">edit</mat-icon>
-        <mat-icon matTooltip="Удалить слово" matTooltipPosition="above">remove_circle_outline</mat-icon>  
+        <mat-icon matTooltip="Удалить слово" matTooltipPosition="above" (click)="deleteWord(word.key)">remove_circle_outline</mat-icon>  
         </div>
        
     </mat-card>

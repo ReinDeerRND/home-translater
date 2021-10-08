@@ -13,7 +13,7 @@
 
       <button mat-raised-button color="primary" type="submit" [disabled]="loadForm.invalid" (click)="onSubmit()">Загрузить
         статью</button>
-      <button mat-raised-button color="primary" type="reset">Очистить форму</button>
+      <button mat-raised-button color="primary" type="reset" (click)="reset()">Очистить форму</button>
     </form>
   </div>
   <div class="result-layout">

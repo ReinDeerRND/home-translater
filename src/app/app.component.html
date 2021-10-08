@@ -1,14 +1,15 @@
 <mat-toolbar color="primary">
-  <span class="header1">Snow Translater</span>
+  <img class="header-logo" src="../assets/snowflake.png"><span class="header1">Snow Translater</span>
  <span class="example-spacer"></span>
- <button mat-icon-button  class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+ <a href="mailto:swiderskaya.elena@gmail.com" matTooltip="Написать разработчику">
+ <button mat-icon-button color="accent" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
    <mat-icon>mail</mat-icon>
- </button>
- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+ </button></a>
+ <button mat-icon-button color="accent"  matTooltip="О приложении" (click)="showInfo()" class="example-icon" aria-label="Example icon-button with share icon">
   <mat-icon>help</mat-icon>
 </button>
 </mat-toolbar>
-  <div class="description">Закачивайте тексты на английском языке, переводите слова, пополняйте словарь</div>
+  <div class="description"><span>Закачивайте тексты на английском,</span> <span>переводите слова,</span> <span>пополняйте словарь</span></div>
   <div class="center-icon"><mat-icon color="accent">expand_more</mat-icon></div>
 <mat-card >
   <mat-tab-group animationDuration="0ms" color="accent">

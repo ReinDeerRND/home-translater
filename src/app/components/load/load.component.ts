@@ -60,16 +60,16 @@ export class LoadComponent implements OnInit {
     })
   }
 
-  getMarkedText(text: string){
-    let textArray  = text.split(' ');    
-    textArray.forEach(word=>{
+  getMarkedText(text: string) {
+    let textArray = text.split(' ');
+    textArray.forEach(word => {
       let foundWord: IWord | null = this.loadDictService.getWord(word.toLowerCase());
       if (foundWord) {
         this.markedText?.push({
           word: word,
           tooltip: foundWord.translate
         });
-      } else{
+      } else {
         this.markedText?.push({
           word: word,
           tooltip: null
@@ -77,19 +77,21 @@ export class LoadComponent implements OnInit {
       }
     });
     console.log(this.markedText);
-    
+
   }
-  
+  reset() {
+    this.newWordsArray = new FormArray([]);
+    this.wordsArray = [];
+    this.newText = undefined;
+    this.markedText = [];
+  }
 
   saveToDictionary() {
     let keyWords = this.wordsArray?.map(word => _.zipObject(['key'], [word]));
     const translateWords = this.newWordsForm.value['newWordsArray'];
     let objectForDictionary = _.merge(keyWords, translateWords).filter((item: IWord) => item.translate);
     this.loadDictService.addWordsToDictionary(objectForDictionary);
-    this.newWordsArray = new FormArray([]);
-    this.wordsArray = [];
-    this.newText = undefined;
-    this.markedText = [];
+    this.reset();
     this.snackBar.open("Слова сохранены в словарь", "Закрыть", { duration: 2000 });
   }
 }
