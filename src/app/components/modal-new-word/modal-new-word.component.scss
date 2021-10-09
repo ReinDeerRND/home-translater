@@ -7,10 +7,22 @@
 }
 mat-form-field{
     margin-right: 10px;
-    &:first-child{
-        width: 210px;
-    }
+
     &:last-child{
         width: 330px;
     }
+}
+
+@media screen and (max-width: 500px) {
+    mat-form-field{
+        margin-right: 0;
+        &:first-of-type{
+            width: 90%;
+        }
+        &:last-child{
+            width: 90%;
+        }
+    }
+
+    
 }

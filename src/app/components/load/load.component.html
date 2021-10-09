@@ -27,7 +27,7 @@
       <div [formGroup]="newWordsForm">
         <div formArrayName="newWordsArray" class="new-words">
           <ng-container *ngIf="wordsArray && newWordsArray['controls'].length > 0">
-            <div *ngFor="let form of newWordsArray['controls']; let i =index;" style="width:47%;">
+            <div *ngFor="let form of newWordsArray['controls']; let i =index;" class="translate-item">
               <div [formGroupName]="i">
                 <mat-form-field appearance="outline" color="accent">
                   <mat-label>Перевод слова <span class="new-word">{{wordsArray[i]}}</span></mat-label>

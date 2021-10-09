@@ -1,6 +1,7 @@
 
 <div mat-dialog-content>
   <div class="modal-header">Добавление слова</div>
+
   <mat-form-field appearance="outline" color="accent">
     <mat-label>Английский вариант</mat-label>
     <input matInput [(ngModel)]="data.key">
@@ -9,6 +10,8 @@
     <mat-label>Русский перевод</mat-label>
     <input matInput [(ngModel)]="data.translate">
   </mat-form-field>
+
+ 
 </div>
 <div mat-dialog-actions>
   <button mat-button color="accent" (click)="onNoClick()">Отмена</button>

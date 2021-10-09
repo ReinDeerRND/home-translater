@@ -58,6 +58,9 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            .translate-item {
+                width: 47%;
+            }
         }
         .new-word {
             font-weight: bold;
@@ -91,5 +94,13 @@
     }
 }
 @media screen and (max-width: 426px) {
-
+    .result-layout .new-words-layout .new-words {
+        align-items: center;
+        .translate-item {
+            width: 90%;
+            mat-form-field {
+                width: 100%;
+            }
+        }
+    }
 }
